@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 from adapters.audio_handler import AudioHandler
 from adapters.twilio_adapter import TwilioAdapter
 from adapters.whisper_adapter import WhisperAdapter
-from use_case.send_message import SendMessage
-from use_case.transcribe_audio import TranscribeAudio
+from use_cases.send_message import SendMessage
+from use_cases.transcribe_audio import TranscribeAudio
 
 print(f"In flask global level: {threading.current_thread().name}")
 load_dotenv()
