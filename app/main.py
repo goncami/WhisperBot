@@ -1,13 +1,13 @@
 import os
 import threading
 
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from dotenv import load_dotenv
 
 from adapters.audio_handler import AudioHandler
-from adapters.twilio_adapter import TwilioAdapter
 from adapters.whisper_adapter import WhisperAdapter
-from use_cases.send_message import SendMessage
+from services.transcriptor_service import TranscriptorService
+from services.twilio_service import TwilioService
 from use_cases.transcribe_audio import TranscribeAudio
 
 print(f"In flask global level: {threading.current_thread().name}")
@@ -19,8 +19,8 @@ ADMIN_PHONE_NUMBER = os.getenv('ADMIN_PHONE_NUMBER')
 app = Flask(__name__)
 
 
-twilio_adapter = TwilioAdapter(os.getenv('ACCOUNT_SID'), os.getenv('AUTH_TOKEN'))
-send_message = SendMessage(twilio_adapter)
+messages_service = TwilioService(os.getenv('ACCOUNT_SID'), os.getenv('AUTH_TOKEN'))
+transcriptor_service = TranscriptorService()
 
 
 @app.route('/')
@@ -35,7 +35,7 @@ def bot():
         audio_handler = AudioHandler(request)
 
         if not audio_handler.get_media_type():
-            return send_message.execute(destiny, 'Por favor, envía un archivo de audio.')
+            return messages_service.send_message.execute(destiny, 'Por favor, envía un archivo de audio.')
 
         content = audio_handler.get_audio_content()
         file = audio_handler.save_audio(content, audio_handler.get_extension())
@@ -48,14 +48,13 @@ def bot():
         print(f"Se produjo una excepción: {e}")
         response_text = 'Se ha producido un error, ' + 'vuelve a intentarlo gracias'
     finally:
-        return send_message.execute(destiny, response_text)
+        return messages_service.send_message.execute(destiny, response_text)
 
 
 def async_transcribe(file, from_number):
     print(f"Inside async_transcribe: {threading.current_thread().name}")
-    transcriptor = TranscribeAudio(WhisperAdapter())
-    text_result = transcriptor.execute(file)
-    send_message.execute(from_number, text_result)
+    text_result = transcriptor_service.transcribe_audio.execute(file)
+    messages_service.send_message.execute(from_number, text_result)
 
 
 if __name__ == '__main__':
