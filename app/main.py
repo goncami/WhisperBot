@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from adapters.audio_handler import AudioHandler
 from adapters.whisper_adapter import WhisperAdapter
 from services.transcriptor_service import TranscriptorService
-from services.twilio_service import TwilioService
+from services.messages_service import MessagesService
 from use_cases.transcribe_audio import TranscribeAudio
 
 print(f"In flask global level: {threading.current_thread().name}")
@@ -19,7 +19,7 @@ ADMIN_PHONE_NUMBER = os.getenv('ADMIN_PHONE_NUMBER')
 app = Flask(__name__)
 
 
-messages_service = TwilioService(os.getenv('ACCOUNT_SID'), os.getenv('AUTH_TOKEN'))
+messages_service = MessagesService(os.getenv('ACCOUNT_SID'), os.getenv('AUTH_TOKEN'))
 transcriptor_service = TranscriptorService()
 
 
