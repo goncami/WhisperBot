@@ -37,7 +37,7 @@ torch==2.2.2
 tqdm==4.66.4
 twilio==9.0.5
 typing_extensions==4.11.0
-urllib3==2.2.1
+urllib3==1.26.18
 Werkzeug==3.0.3
 whisper==1.1.10
 yarl==1.9.4
