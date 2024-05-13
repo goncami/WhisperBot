@@ -1,5 +1,5 @@
-from adapters.twilio_adapter import TwilioAdapter
-from use_cases.send_message import SendMessage
+from app.adapters.twilio_adapter import TwilioAdapter
+from app.use_cases.send_message import SendMessage
 
 
 class MessagesService:

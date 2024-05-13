@@ -1,5 +1,5 @@
-from adapters.whisper_adapter import WhisperAdapter
-from use_cases.transcribe_audio import TranscribeAudio
+from app.adapters.whisper_adapter import WhisperAdapter
+from app.use_cases.transcribe_audio import TranscribeAudio
 
 class TranscriptorService:
     def __init__(self):

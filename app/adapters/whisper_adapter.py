@@ -2,7 +2,7 @@ import os
 
 from dotenv import load_dotenv
 
-from interfaces.transcriber_api import TranscriberInterface
+from app.interfaces.transcriber_api import TranscriberInterface
 import whisper
 
 load_dotenv()

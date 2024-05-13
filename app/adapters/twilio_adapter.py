@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from twilio.rest import Client
 
-from interfaces.sender_api import SenderInterface
+from app.interfaces.sender_api import SenderInterface
 
 
 load_dotenv()

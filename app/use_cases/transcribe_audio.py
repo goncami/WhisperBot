@@ -1,4 +1,4 @@
-from interfaces.transcriber_api import TranscriberInterface
+from app.interfaces.transcriber_api import TranscriberInterface
 
 
 class TranscribeAudio:

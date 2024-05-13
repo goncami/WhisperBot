@@ -1,4 +1,4 @@
-from interfaces.sender_api import SenderInterface
+from app.interfaces.sender_api import SenderInterface
 
 
 class SendMessage:

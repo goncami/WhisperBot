@@ -25,6 +25,8 @@ O puedes usar gunicorn:
 
 La aplicación comenzará a escuchar las solicitudes POST en la URL raíz. Para probar la aplicación, puedes usar una herramienta como ngrok para crear una URL pública que dirija a tu entorno de desarrollo local. Luego, puedes configurar un número de teléfono de Twilio para usar esta URL como el webhook para los mensajes entrantes.
 ```$ ngrok http 5000```
+o
+```$ ngrok http 8003```
 
 ## Advertencias
 
