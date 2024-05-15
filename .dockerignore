@@ -1,0 +1,26 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# .dockerignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+*.log
+*.sqlite
+instance/
+.dockerignore
+.git
+.gitignore
+*.so
+.DS_Store
+.env
+*.ogg

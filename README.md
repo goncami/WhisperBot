@@ -11,8 +11,15 @@ Este es un bot de mensajería construido con [Flask](https://flask.palletsprojec
 
 ## Cómo usar
 
-1. Instala las dependencias de Python con el comando `pip install -r requirements.txt`.
-2. Inicia el servidor para desarrollo con el comando `python3 main.py`.
+1. Instala las dependencias (I) de Python con el comando `pip install -r requirements_torch.txt`.
+2. Instala las dependencias (II) de Python con el comando `pip install -r requirements_rest.txt`.
+3. Inicia el servidor para desarrollo con el comando `python3 main.py`.
+
+### Uso con Docker
+
+1. Construye la imagen Docker con el comando `docker build -t whisperbot:0.0.1 .`.
+2. Inicia el contenedor Docker con el comando `docker run --env-file .env -p 8003:8003 -v $(pwd)/.env:/app/.env --name transcriptor whisperbot:0.0.1`.
+
 
 Para ejecutar la aplicación, simplemente ejecuta el script de Python en una terminal o línea de comandos con el comando:
 
