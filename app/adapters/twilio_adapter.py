@@ -14,9 +14,9 @@ class TwilioAdapter(SenderInterface):
         self.cliente = Client(account_sid, auth_token)
 
     def send_message(selfe, destiny, message):
-        twilio_whataspp_number = os.getenv('TWILIO_WHATSAPP_NUMBER')
+        twilio_whatsapp_number = os.getenv('TWILIO_WHATSAPP_NUMBER')
         message = selfe.cliente.messages.create(
             to=destiny,
-            from_=twilio_whataspp_number,
+            from_=twilio_whatsapp_number,
             body=message)
         return message.sid
