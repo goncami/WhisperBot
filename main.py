@@ -6,6 +6,7 @@ from app.transcriptor_bot import TranscriptorBot
 app = Flask(__name__)
 transcriptor_bot = TranscriptorBot()
 
+
 @app.route('/')
 def hello_world():
     return 'Hello World!'
