@@ -1,4 +1,4 @@
-# Flask Messenger Bot
+# WhisperBot
 
 Este es un bot de mensajería construido con [Flask](https://flask.palletsprojects.com/en/1.1.x/), un popular marco de trabajo minimalista para Python.
 
